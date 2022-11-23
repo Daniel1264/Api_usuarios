@@ -27,7 +27,8 @@ const postNewUser = (req, res) => {
         const data = userController.createNewUser({firstName, lastName, email, password, birthday});
         res.status(200).json(data)
     } else {
-        res.status(400).json({message: "invalid data"})
+        res.status(400).json({message: "Invalid data", fields:{firstName:"string", 
+        lastName:"string", email:"string", password:"string", birthday:"YYYY/MM/DD"}})
     }
 }
 
