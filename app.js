@@ -4,6 +4,7 @@ const router = require('./tasks/users.routers')
 const port = 9000;
 
 const app = express()
+app.use(express.json())
 
 app.use('/', router);
 
