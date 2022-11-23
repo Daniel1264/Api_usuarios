@@ -20,13 +20,17 @@ const findUserById = (req, res) => {
 }
 
 const postNewUser = (req, res) => {
-    const {first_name, last_name, email, password, birthday} = req.body
-    if(first_name && last_name && email && password && birthday) {
-        const data = userController.createNewUser({first_name, last_name, email, password, birthday})
-        res.status(201).json(data)
+    const {firstName, lastName, email, password, birthday} = req.body;
+
+    if(firstName && lastName && email && password && birthday) {
+
+        const data = userController.createNewUser({firstName, lastName, email, password, birthday});
+        res.status(200).json(data)
     } else {
-        res.status(400).json({message: "invalid data", fields: {first_name: "string", last_name:"string", email: "string", password: "string", birthday: "YYYY/MM/DD"}})
+        res.status(400).json({message: "invalid data"})
     }
 }
+
+
 
 module.exports = {findAllUsers, findUserById, postNewUser}
