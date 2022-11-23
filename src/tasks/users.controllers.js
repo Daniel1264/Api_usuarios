@@ -1,4 +1,4 @@
-const usersDB = []
+let usersDB = []
 let id = 1
 
 const getAllUsers = () => {
@@ -7,6 +7,11 @@ const getAllUsers = () => {
 
 const getUserById = (id) => {
     const user = usersDB.find(user => user.id == id)
+    return user
+}
+const deleteUserById = (id) => {
+    let user = usersDB.filter(user => user.id != id)
+    usersDB = user
     return user
 }
 
@@ -25,4 +30,4 @@ const createNewUser = (obj) => {
 
 
 
-module.exports = {getAllUsers, getUserById, createNewUser}
+module.exports = {getAllUsers, getUserById, createNewUser, deleteUserById}
