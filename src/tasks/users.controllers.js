@@ -1,5 +1,5 @@
 const usersDB = []
-const id = 1
+let id = 1
 
 const getAllUsers = () => {
     return usersDB
@@ -13,8 +13,8 @@ const getUserById = (id) => {
 const createNewUser = (obj) => {
     const newDb = {
         id: id++,
-        first_name: obj.first_name,
-        last_name: obj.last_name,
+        firstName: obj.firstName,
+        lastName: obj.lastName,
         email: obj.email,
         password: obj.password,
         birthday: obj.birthday
@@ -22,5 +22,7 @@ const createNewUser = (obj) => {
     usersDB.push(newDb)
     return newDb
 }
+
+
 
 module.exports = {getAllUsers, getUserById, createNewUser}
